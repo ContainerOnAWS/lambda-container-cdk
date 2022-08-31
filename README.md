@@ -1,4 +1,4 @@
-# Sample project for API Gateway and Lambda with CDK
+# Lambda Container with CDK
 
 To deploy without dependencies and CloudFormation limitation of Template body size(512k), create small API stacks for each Microservice or module.
 
@@ -30,11 +30,11 @@ Use the `cdk` command-line toolkit to interact with your project:
 ## CDK Stack
 
 | Stack (CloudFormation File Size) | Time    |
-|-------------------------------|---------|
-| root-api    (24kb)            | 3m.     |
-| device-api  (24kb)            | 1m 30s  |
-| product-api (20kb)            | 1m 30s  |
-| Total                         | 6m      |
+|----------------------------------|---------|
+| root-api    (24kb)               | 3m      |
+| device-api  (24kb)               | 1m 30s  |
+| product-api (20kb)               | 1m 30s  |
+| Total                            | 6m      |
 
 ## Steps
 
