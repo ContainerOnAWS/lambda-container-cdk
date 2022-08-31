@@ -1,0 +1,161 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "apigw-root-api-dev.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "apigw-root-api-dev.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "apigw-root-api-dev": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://681747700094/us-east-1",
+      "properties": {
+        "templateFile": "apigw-root-api-dev.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-deploy-role-681747700094-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-cfn-exec-role-681747700094-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-681747700094-us-east-1/27a20a97eb96b5ce5233a3a8dddd365977076bb211d2bedc320500ac8bb7879c.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "apigw-root-api-dev.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-lookup-role-681747700094-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "apigw-root-api-dev.assets"
+      ],
+      "metadata": {
+        "/apigw-root-api-dev/lambda-ping/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdapingServiceRoleFB105F72"
+          }
+        ],
+        "/apigw-root-api-dev/lambda-ping/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaping8F8D8936"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapiE9EF72B7"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapiCloudWatchRole8CA13CB4"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapiAccountC8744D50"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapiDeployment82DBF81908e0637beb2a238e9d2ef8b400af188d"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/DeploymentStage.dev/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapiDeploymentStagedevE20AA0B0"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapiEndpointA3DFADB5"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Default/dummy-for-import/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapidummyforimport612CC625"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapidummyforimportv1ACD4B6E2"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/ping/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapidummyforimportv1ping2E0C3D60"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/ping/GET/ApiPermission.apigwrootapidevserviceaapi457ED915.GET..dummy-for-import.v1.ping": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapidummyforimportv1pingGETApiPermissionapigwrootapidevserviceaapi457ED915GETdummyforimportv1pingB159B373"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/ping/GET/ApiPermission.Test.apigwrootapidevserviceaapi457ED915.GET..dummy-for-import.v1.ping": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapidummyforimportv1pingGETApiPermissionTestapigwrootapidevserviceaapi457ED915GETdummyforimportv1ping25733105"
+          }
+        ],
+        "/apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/ping/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceaapidummyforimportv1pingGET4F677CD4"
+          }
+        ],
+        "/apigw-root-api-dev/api-id/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiidB24641D5"
+          }
+        ],
+        "/apigw-root-api-dev/root-resource-id/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootresourceid26BF995E"
+          }
+        ],
+        "/apigw-root-api-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/apigw-root-api-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/apigw-root-api-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "apigw-root-api-dev"
+    }
+  }
+}

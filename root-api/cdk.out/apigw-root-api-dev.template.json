@@ -1,0 +1,421 @@
+{
+ "Description": "root API",
+ "Resources": {
+  "lambdapingServiceRoleFB105F72": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/lambda-ping/ServiceRole/Resource"
+   }
+  },
+  "lambdaping8F8D8936": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ImageUri": {
+      "Fn::Sub": "681747700094.dkr.ecr.us-east-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-681747700094-us-east-1:ab2aaac594d9910d9dfbfae3762f27926faa7e803f3d0818da2f29846fe6dcc1"
+     }
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "lambdapingServiceRoleFB105F72",
+      "Arn"
+     ]
+    },
+    "FunctionName": "root-api",
+    "ImageConfig": {
+     "Command": [
+      "hello.handler"
+     ],
+     "EntryPoint": [
+      "/lambda-entrypoint.sh"
+     ]
+    },
+    "PackageType": "Image"
+   },
+   "DependsOn": [
+    "lambdapingServiceRoleFB105F72"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/lambda-ping/Resource",
+    "aws:asset:path": "asset.ab2aaac594d9910d9dfbfae3762f27926faa7e803f3d0818da2f29846fe6dcc1",
+    "aws:asset:dockerfile-path": "Dockerfile",
+    "aws:asset:property": "Code.ImageUri"
+   }
+  },
+  "serviceaapiE9EF72B7": {
+   "Type": "AWS::ApiGateway::RestApi",
+   "Properties": {
+    "Name": "servicea-api"
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Resource"
+   }
+  },
+  "serviceaapiCloudWatchRole8CA13CB4": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "apigateway.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/CloudWatchRole/Resource"
+   }
+  },
+  "serviceaapiAccountC8744D50": {
+   "Type": "AWS::ApiGateway::Account",
+   "Properties": {
+    "CloudWatchRoleArn": {
+     "Fn::GetAtt": [
+      "serviceaapiCloudWatchRole8CA13CB4",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "serviceaapiE9EF72B7"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Account"
+   }
+  },
+  "serviceaapiDeployment82DBF81908e0637beb2a238e9d2ef8b400af188d": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "serviceaapiE9EF72B7"
+    },
+    "Description": "Automatically created by the RestApi construct"
+   },
+   "DependsOn": [
+    "serviceaapidummyforimport612CC625",
+    "serviceaapidummyforimportv1pingGET4F677CD4",
+    "serviceaapidummyforimportv1ping2E0C3D60",
+    "serviceaapidummyforimportv1ACD4B6E2"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Deployment/Resource"
+   }
+  },
+  "serviceaapiDeploymentStagedevE20AA0B0": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "serviceaapiE9EF72B7"
+    },
+    "DeploymentId": {
+     "Ref": "serviceaapiDeployment82DBF81908e0637beb2a238e9d2ef8b400af188d"
+    },
+    "StageName": "dev"
+   },
+   "DependsOn": [
+    "serviceaapiAccountC8744D50"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/DeploymentStage.dev/Resource"
+   }
+  },
+  "serviceaapidummyforimport612CC625": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "serviceaapiE9EF72B7",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "dummy-for-import",
+    "RestApiId": {
+     "Ref": "serviceaapiE9EF72B7"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Default/dummy-for-import/Resource"
+   }
+  },
+  "serviceaapidummyforimportv1ACD4B6E2": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "serviceaapidummyforimport612CC625"
+    },
+    "PathPart": "v1",
+    "RestApiId": {
+     "Ref": "serviceaapiE9EF72B7"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/Resource"
+   }
+  },
+  "serviceaapidummyforimportv1ping2E0C3D60": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "serviceaapidummyforimportv1ACD4B6E2"
+    },
+    "PathPart": "ping",
+    "RestApiId": {
+     "Ref": "serviceaapiE9EF72B7"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/ping/Resource"
+   }
+  },
+  "serviceaapidummyforimportv1pingGETApiPermissionapigwrootapidevserviceaapi457ED915GETdummyforimportv1pingB159B373": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "lambdaping8F8D8936",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:681747700094:",
+       {
+        "Ref": "serviceaapiE9EF72B7"
+       },
+       "/",
+       {
+        "Ref": "serviceaapiDeploymentStagedevE20AA0B0"
+       },
+       "/GET/dummy-for-import/v1/ping"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/ping/GET/ApiPermission.apigwrootapidevserviceaapi457ED915.GET..dummy-for-import.v1.ping"
+   }
+  },
+  "serviceaapidummyforimportv1pingGETApiPermissionTestapigwrootapidevserviceaapi457ED915GETdummyforimportv1ping25733105": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "lambdaping8F8D8936",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:681747700094:",
+       {
+        "Ref": "serviceaapiE9EF72B7"
+       },
+       "/test-invoke-stage/GET/dummy-for-import/v1/ping"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/ping/GET/ApiPermission.Test.apigwrootapidevserviceaapi457ED915.GET..dummy-for-import.v1.ping"
+   }
+  },
+  "serviceaapidummyforimportv1pingGET4F677CD4": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "GET",
+    "ResourceId": {
+     "Ref": "serviceaapidummyforimportv1ping2E0C3D60"
+    },
+    "RestApiId": {
+     "Ref": "serviceaapiE9EF72B7"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "lambdaping8F8D8936",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/servicea-api/Default/dummy-for-import/v1/ping/GET/Resource"
+   }
+  },
+  "apiidB24641D5": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Type": "String",
+    "Value": {
+     "Ref": "serviceaapiE9EF72B7"
+    },
+    "Name": "/cdk-lambda-apigateway/rest-api-id"
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/api-id/Resource"
+   }
+  },
+  "rootresourceid26BF995E": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Type": "String",
+    "Value": {
+     "Fn::GetAtt": [
+      "serviceaapiE9EF72B7",
+      "RootResourceId"
+     ]
+    },
+    "Name": "/cdk-lambda-apigateway/root-resource-id"
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/root-resource-id/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/01QS07DMBA9C3vHUIrYB6pKLKpW4QDV1BnCNLEdeSZUUeS7YydUZDXvY7/5POvtVj89wI0LU7dFRxc9fQqYViXpPHVgLzXoaedNi+HDQoP7wRkh79T7l1vjEwZLzIlFRWD1VPkOs5FrVGjCGZhRWK/CyqxkT1fYeybxYXwDRgU9NSB4gzEFIUvZ05z1D0tj/OBE7bDv/GgxwaSuWFqjmQdYQPrqh2Bwjr+Tv8wFH1C+fZ2lBUXFbPM5ArnmBAEsCoZ51zuJUc0r5BbpUfaOg/SDrIOjcr5GfeXHn82r3ryke1+ZqAhpfLKoq6X+Ankx8BaLAQAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "apigw-root-api-dev/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "serviceaapiEndpointA3DFADB5": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "serviceaapiE9EF72B7"
+      },
+      ".execute-api.us-east-1.",
+      {
+       "Ref": "AWS::URLSuffix"
+      },
+      "/",
+      {
+       "Ref": "serviceaapiDeploymentStagedevE20AA0B0"
+      },
+      "/"
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

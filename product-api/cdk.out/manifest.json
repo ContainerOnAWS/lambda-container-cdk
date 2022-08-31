@@ -1,0 +1,203 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "apigw-product-api-dev.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "apigw-product-api-dev.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "apigw-product-api-dev": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://681747700094/us-east-1",
+      "properties": {
+        "templateFile": "apigw-product-api-dev.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-deploy-role-681747700094-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-cfn-exec-role-681747700094-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-681747700094-us-east-1/a1a39530131bea9e29ff593fd807f6a093d4d2b53c10e8d5495aff55f3044e52.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "apigw-product-api-dev.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-lookup-role-681747700094-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "apigw-product-api-dev.assets"
+      ],
+      "metadata": {
+        "/apigw-product-api-dev/SsmParameterValue:--cdk-lambda-apigateway--rest-api-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/apigw-product-api-dev/SsmParameterValue:--cdk-lambda-apigateway--root-resource-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValuecdklambdaapigatewayrootresourceidC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproduct4D6F0BE0"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1E063F418"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/categories/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1categories0096C049"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/categories/GET/ApiPermission.apigwproductapidevrootapiFAF081ED.GET..product.v1.categories": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1categoriesGETApiPermissionapigwproductapidevrootapiFAF081EDGETproductv1categoriesDD9A14BA"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/categories/GET/ApiPermission.Test.apigwproductapidevrootapiFAF081ED.GET..product.v1.categories": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1categoriesGETApiPermissionTestapigwproductapidevrootapiFAF081EDGETproductv1categoriesA6489AD8"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/categories/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1categoriesGETEF4E11EC"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/{categoryid}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1categoryid88DEC3AB"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/{categoryid}/GET/ApiPermission.apigwproductapidevrootapiFAF081ED.GET..product.v1.{categoryid}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1categoryidGETApiPermissionapigwproductapidevrootapiFAF081EDGETproductv1categoryidEED5B369"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/{categoryid}/GET/ApiPermission.Test.apigwproductapidevrootapiFAF081ED.GET..product.v1.{categoryid}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1categoryidGETApiPermissionTestapigwproductapidevrootapiFAF081EDGETproductv1categoryid6529773D"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v1/{categoryid}/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv1categoryidGET026D1F74"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2ED6CC65D"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/categories/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2categoriesC5F9FC7C"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/categories/GET/ApiPermission.apigwproductapidevrootapiFAF081ED.GET..product.v2.categories": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2categoriesGETApiPermissionapigwproductapidevrootapiFAF081EDGETproductv2categories7057AFAA"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/categories/GET/ApiPermission.Test.apigwproductapidevrootapiFAF081ED.GET..product.v2.categories": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2categoriesGETApiPermissionTestapigwproductapidevrootapiFAF081EDGETproductv2categoriesE3ED956C"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/categories/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2categoriesGET2D85040D"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/{categoryid}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2categoryidCE28CC8E"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/{categoryid}/GET/ApiPermission.apigwproductapidevrootapiFAF081ED.GET..product.v2.{categoryid}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2categoryidGETApiPermissionapigwproductapidevrootapiFAF081EDGETproductv2categoryid3653A46D"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/{categoryid}/GET/ApiPermission.Test.apigwproductapidevrootapiFAF081ED.GET..product.v2.{categoryid}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2categoryidGETApiPermissionTestapigwproductapidevrootapiFAF081EDGETproductv2categoryidD30F69EF"
+          }
+        ],
+        "/apigw-product-api-dev/root-api/Default/product/v2/{categoryid}/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapiproductv2categoryidGETED1C8007"
+          }
+        ],
+        "/apigw-product-api-dev/lambda-ping/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdapingServiceRoleFB105F72"
+          }
+        ],
+        "/apigw-product-api-dev/lambda-ping/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaping8F8D8936"
+          }
+        ],
+        "/apigw-product-api-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/apigw-product-api-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/apigw-product-api-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "apigw-product-api-dev"
+    }
+  }
+}

@@ -1,0 +1,626 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.0.84"
+        }
+      },
+      "apigw-device-api-dev": {
+        "id": "apigw-device-api-dev",
+        "path": "apigw-device-api-dev",
+        "children": {
+          "SsmParameterValue:--cdk-lambda-apigateway--rest-api-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
+            "id": "SsmParameterValue:--cdk-lambda-apigateway--rest-api-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "path": "apigw-device-api-dev/SsmParameterValue:--cdk-lambda-apigateway--rest-api-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.33.0"
+            }
+          },
+          "SsmParameterValue:--cdk-lambda-apigateway--rest-api-id:C96584B6-F00A-464E-AD19-53AFF4B05118": {
+            "id": "SsmParameterValue:--cdk-lambda-apigateway--rest-api-id:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "path": "apigw-device-api-dev/SsmParameterValue:--cdk-lambda-apigateway--rest-api-id:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.33.0"
+            }
+          },
+          "SsmParameterValue:--cdk-lambda-apigateway--root-resource-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
+            "id": "SsmParameterValue:--cdk-lambda-apigateway--root-resource-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "path": "apigw-device-api-dev/SsmParameterValue:--cdk-lambda-apigateway--root-resource-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.33.0"
+            }
+          },
+          "SsmParameterValue:--cdk-lambda-apigateway--root-resource-id:C96584B6-F00A-464E-AD19-53AFF4B05118": {
+            "id": "SsmParameterValue:--cdk-lambda-apigateway--root-resource-id:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "path": "apigw-device-api-dev/SsmParameterValue:--cdk-lambda-apigateway--root-resource-id:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.33.0"
+            }
+          },
+          "root-api": {
+            "id": "root-api",
+            "path": "apigw-device-api-dev/root-api",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "apigw-device-api-dev/root-api/Default",
+                "children": {
+                  "device": {
+                    "id": "device",
+                    "path": "apigw-device-api-dev/root-api/Default/device",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "apigw-device-api-dev/root-api/Default/device/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": {
+                              "Ref": "SsmParameterValuecdklambdaapigatewayrootresourceidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                            },
+                            "pathPart": "device",
+                            "restApiId": {
+                              "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                          "version": "2.33.0"
+                        }
+                      },
+                      "v1": {
+                        "id": "v1",
+                        "path": "apigw-device-api-dev/root-api/Default/device/v1",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "apigw-device-api-dev/root-api/Default/device/v1/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                              "aws:cdk:cloudformation:props": {
+                                "parentId": {
+                                  "Ref": "rootapideviceD2A76EA5"
+                                },
+                                "pathPart": "v1",
+                                "restApiId": {
+                                  "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                              "version": "2.33.0"
+                            }
+                          },
+                          "{deviceid}": {
+                            "id": "{deviceid}",
+                            "path": "apigw-device-api-dev/root-api/Default/device/v1/{deviceid}",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                                  "aws:cdk:cloudformation:props": {
+                                    "parentId": {
+                                      "Ref": "rootapidevicev1E84EEE29"
+                                    },
+                                    "pathPart": "{deviceid}",
+                                    "restApiId": {
+                                      "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                                  "version": "2.33.0"
+                                }
+                              },
+                              "GET": {
+                                "id": "GET",
+                                "path": "apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/GET",
+                                "children": {
+                                  "ApiPermission.apigwdeviceapidevrootapiF868A781.GET..device.v1.{deviceid}": {
+                                    "id": "ApiPermission.apigwdeviceapidevrootapiF868A781.GET..device.v1.{deviceid}",
+                                    "path": "apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/GET/ApiPermission.apigwdeviceapidevrootapiF868A781.GET..device.v1.{deviceid}",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "lambdaping8F8D8936",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:us-east-1:681747700094:",
+                                              {
+                                                "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                              },
+                                              "/*/GET/device/v1/*"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                      "version": "2.33.0"
+                                    }
+                                  },
+                                  "ApiPermission.Test.apigwdeviceapidevrootapiF868A781.GET..device.v1.{deviceid}": {
+                                    "id": "ApiPermission.Test.apigwdeviceapidevrootapiF868A781.GET..device.v1.{deviceid}",
+                                    "path": "apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/GET/ApiPermission.Test.apigwdeviceapidevrootapiF868A781.GET..device.v1.{deviceid}",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "lambdaping8F8D8936",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:us-east-1:681747700094:",
+                                              {
+                                                "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                              },
+                                              "/test-invoke-stage/GET/device/v1/*"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                      "version": "2.33.0"
+                                    }
+                                  },
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/GET/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                      "aws:cdk:cloudformation:props": {
+                                        "httpMethod": "GET",
+                                        "resourceId": {
+                                          "Ref": "rootapidevicev1deviceid0745E19B"
+                                        },
+                                        "restApiId": {
+                                          "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                        },
+                                        "authorizationType": "NONE",
+                                        "integration": {
+                                          "type": "AWS_PROXY",
+                                          "uri": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+                                                {
+                                                  "Fn::GetAtt": [
+                                                    "lambdaping8F8D8936",
+                                                    "Arn"
+                                                  ]
+                                                },
+                                                "/invocations"
+                                              ]
+                                            ]
+                                          },
+                                          "integrationHttpMethod": "POST"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                      "version": "2.33.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                                  "version": "2.33.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                              "version": "2.33.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                          "version": "2.33.0"
+                        }
+                      },
+                      "v2": {
+                        "id": "v2",
+                        "path": "apigw-device-api-dev/root-api/Default/device/v2",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "apigw-device-api-dev/root-api/Default/device/v2/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                              "aws:cdk:cloudformation:props": {
+                                "parentId": {
+                                  "Ref": "rootapideviceD2A76EA5"
+                                },
+                                "pathPart": "v2",
+                                "restApiId": {
+                                  "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                              "version": "2.33.0"
+                            }
+                          },
+                          "{deviceid}": {
+                            "id": "{deviceid}",
+                            "path": "apigw-device-api-dev/root-api/Default/device/v2/{deviceid}",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                                  "aws:cdk:cloudformation:props": {
+                                    "parentId": {
+                                      "Ref": "rootapidevicev22971AC1B"
+                                    },
+                                    "pathPart": "{deviceid}",
+                                    "restApiId": {
+                                      "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                                  "version": "2.33.0"
+                                }
+                              },
+                              "GET": {
+                                "id": "GET",
+                                "path": "apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/GET",
+                                "children": {
+                                  "ApiPermission.apigwdeviceapidevrootapiF868A781.GET..device.v2.{deviceid}": {
+                                    "id": "ApiPermission.apigwdeviceapidevrootapiF868A781.GET..device.v2.{deviceid}",
+                                    "path": "apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/GET/ApiPermission.apigwdeviceapidevrootapiF868A781.GET..device.v2.{deviceid}",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "lambdaping8F8D8936",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:us-east-1:681747700094:",
+                                              {
+                                                "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                              },
+                                              "/*/GET/device/v2/*"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                      "version": "2.33.0"
+                                    }
+                                  },
+                                  "ApiPermission.Test.apigwdeviceapidevrootapiF868A781.GET..device.v2.{deviceid}": {
+                                    "id": "ApiPermission.Test.apigwdeviceapidevrootapiF868A781.GET..device.v2.{deviceid}",
+                                    "path": "apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/GET/ApiPermission.Test.apigwdeviceapidevrootapiF868A781.GET..device.v2.{deviceid}",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "lambdaping8F8D8936",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:us-east-1:681747700094:",
+                                              {
+                                                "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                              },
+                                              "/test-invoke-stage/GET/device/v2/*"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                      "version": "2.33.0"
+                                    }
+                                  },
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/GET/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                      "aws:cdk:cloudformation:props": {
+                                        "httpMethod": "GET",
+                                        "resourceId": {
+                                          "Ref": "rootapidevicev2deviceidFABE358F"
+                                        },
+                                        "restApiId": {
+                                          "Ref": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+                                        },
+                                        "authorizationType": "NONE",
+                                        "integration": {
+                                          "type": "AWS_PROXY",
+                                          "uri": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+                                                {
+                                                  "Fn::GetAtt": [
+                                                    "lambdaping8F8D8936",
+                                                    "Arn"
+                                                  ]
+                                                },
+                                                "/invocations"
+                                              ]
+                                            ]
+                                          },
+                                          "integrationHttpMethod": "POST"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                      "version": "2.33.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                                  "version": "2.33.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                              "version": "2.33.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                          "version": "2.33.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                      "version": "2.33.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
+                  "version": "2.33.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.RestApiBase",
+              "version": "2.33.0"
+            }
+          },
+          "lambda-ping": {
+            "id": "lambda-ping",
+            "path": "apigw-device-api-dev/lambda-ping",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "apigw-device-api-dev/lambda-ping/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "apigw-device-api-dev/lambda-ping/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.33.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.33.0"
+                }
+              },
+              "AssetImage": {
+                "id": "AssetImage",
+                "path": "apigw-device-api-dev/lambda-ping/AssetImage",
+                "children": {
+                  "Staging": {
+                    "id": "Staging",
+                    "path": "apigw-device-api-dev/lambda-ping/AssetImage/Staging",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.33.0"
+                    }
+                  },
+                  "Repository": {
+                    "id": "Repository",
+                    "path": "apigw-device-api-dev/lambda-ping/AssetImage/Repository",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ecr.RepositoryBase",
+                      "version": "2.33.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ecr_assets.DockerImageAsset",
+                  "version": "2.33.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "apigw-device-api-dev/lambda-ping/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "imageUri": {
+                        "Fn::Sub": "681747700094.dkr.ecr.us-east-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-681747700094-us-east-1:ab2aaac594d9910d9dfbfae3762f27926faa7e803f3d0818da2f29846fe6dcc1"
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "lambdapingServiceRoleFB105F72",
+                        "Arn"
+                      ]
+                    },
+                    "functionName": "device-api",
+                    "imageConfig": {
+                      "command": [
+                        "hello.handler"
+                      ],
+                      "entryPoint": [
+                        "/lambda-entrypoint.sh"
+                      ]
+                    },
+                    "packageType": "Image"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.33.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.DockerImageFunction",
+              "version": "2.33.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "apigw-device-api-dev/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "apigw-device-api-dev/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.33.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.0.84"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.33.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.33.0"
+    }
+  }
+}

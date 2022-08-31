@@ -1,0 +1,155 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "apigw-device-api-dev.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "apigw-device-api-dev.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "apigw-device-api-dev": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://681747700094/us-east-1",
+      "properties": {
+        "templateFile": "apigw-device-api-dev.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-deploy-role-681747700094-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-cfn-exec-role-681747700094-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-681747700094-us-east-1/1db6e119702f87e218e534f3f0924549de8ef585730b7327da2c2750777c0510.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "apigw-device-api-dev.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::681747700094:role/cdk-hnb659fds-lookup-role-681747700094-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "apigw-device-api-dev.assets"
+      ],
+      "metadata": {
+        "/apigw-device-api-dev/SsmParameterValue:--cdk-lambda-apigateway--rest-api-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValuecdklambdaapigatewayrestapiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/apigw-device-api-dev/SsmParameterValue:--cdk-lambda-apigateway--root-resource-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValuecdklambdaapigatewayrootresourceidC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapideviceD2A76EA5"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev1E84EEE29"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev1deviceid0745E19B"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/GET/ApiPermission.apigwdeviceapidevrootapiF868A781.GET..device.v1.{deviceid}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev1deviceidGETApiPermissionapigwdeviceapidevrootapiF868A781GETdevicev1deviceidAC3E5E50"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/GET/ApiPermission.Test.apigwdeviceapidevrootapiF868A781.GET..device.v1.{deviceid}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev1deviceidGETApiPermissionTestapigwdeviceapidevrootapiF868A781GETdevicev1deviceidA57A586B"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v1/{deviceid}/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev1deviceidGETD91A7543"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev22971AC1B"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev2deviceidFABE358F"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/GET/ApiPermission.apigwdeviceapidevrootapiF868A781.GET..device.v2.{deviceid}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev2deviceidGETApiPermissionapigwdeviceapidevrootapiF868A781GETdevicev2deviceid22B3A4BB"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/GET/ApiPermission.Test.apigwdeviceapidevrootapiF868A781.GET..device.v2.{deviceid}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev2deviceidGETApiPermissionTestapigwdeviceapidevrootapiF868A781GETdevicev2deviceid519CBE24"
+          }
+        ],
+        "/apigw-device-api-dev/root-api/Default/device/v2/{deviceid}/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rootapidevicev2deviceidGET01DC9222"
+          }
+        ],
+        "/apigw-device-api-dev/lambda-ping/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdapingServiceRoleFB105F72"
+          }
+        ],
+        "/apigw-device-api-dev/lambda-ping/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaping8F8D8936"
+          }
+        ],
+        "/apigw-device-api-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/apigw-device-api-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/apigw-device-api-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "apigw-device-api-dev"
+    }
+  }
+}

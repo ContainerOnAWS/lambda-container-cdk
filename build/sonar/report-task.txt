@@ -1,0 +1,6 @@
+projectKey=cdk-lambda-apigateway
+serverUrl=http://alb-sonarqube-1145033794.ap-northeast-2.elb.amazonaws.com
+serverVersion=8.9.9.56886
+dashboardUrl=http://alb-sonarqube-1145033794.ap-northeast-2.elb.amazonaws.com/dashboard?id=cdk-lambda-apigateway
+ceTaskId=AYJDCc67wUmwgKHsMT4R
+ceTaskUrl=http://alb-sonarqube-1145033794.ap-northeast-2.elb.amazonaws.com/api/ce/task?id=AYJDCc67wUmwgKHsMT4R
