@@ -21,6 +21,6 @@ sonarqube {
         property "sonar.issue.ignore.multicriteria", "e1"
         property "sonar.issue.ignore.multicriteria.e1.ruleKey", "typescript:S1848"
         property "sonar.issue.ignore.multicriteria.e1.resourceKey", "**/*.ts"
-        property "sonar.links.ci", "https://github.com/DevSecOpsSamples/lambda-container-cdk"
+        property "sonar.links.ci", "https://github.com/DevSecOpsSamples/lambda-container-cdk/actions"
     }
 }
